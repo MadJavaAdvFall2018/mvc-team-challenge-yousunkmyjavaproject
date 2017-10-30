@@ -46,7 +46,6 @@ lib/java112Demos.jar
 # Maven
 /target/
 /log/
-/lib/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
