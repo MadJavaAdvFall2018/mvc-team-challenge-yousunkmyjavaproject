@@ -4,11 +4,11 @@ Resolving conflicts is important in any Git workflow. It is natural that many pe
 
 Here, we did a git pull and we noticed that a conflict arose. Let us see how we can resolve it. A git status shows you what caused the conflict.
 
-![Conflict at pull time](/imagesforDoc/conflict.png)
+![Conflict at pull time](/imagesForDoc/conflict.png)
 
 We can then open the identified file using a text editor (like jEdit) to see what is wrong. The contents of the file are as shown:
 
-![Conflict](imagesforDoc/conflict2.png)
+![Conflict](imagesForDoc/conflict2.png)
 
 Look at the file carefully. Notice the three lines that have been inserted by Git.
 
@@ -22,7 +22,7 @@ Look at the file carefully. Notice the three lines that have been inserted by Gi
 
 What this means is pretty simple. The lines of code that are between <<<<<<<< HEAD and ======== are a part of your changes, whereas those between ======== and >>>>>>>> another_feature are present in the remote repository that git is trying to merge. What you need to do is remove those three marker lines and edit the content in between them to something that you desire. In our case, let’s keep all the information, so the end file will look something like this.
 
-![Conflict](imagesforDoc/conflict3.png)
+![Conflict](imagesForDoc/conflict3.png)
 
 Although we keep all the content within both blocks, you could remove all content, keep some of the content, or write something else entirely in their place while resolving the conflict.
 
