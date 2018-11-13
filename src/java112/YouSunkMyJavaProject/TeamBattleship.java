@@ -57,19 +57,6 @@ public class TeamBattleship extends HttpServlet {
         Ship cruiser = new Ship("Cruiser", cruiserLocation, 0);
         Ship submarine = new Ship("Submarine", submarineLocation,  0);
 
-
-        //ArrayList<String> aircraftCarrierLocation = aircraftCarrier.getLocation();
-        //ArrayList<String> destroyerLocation = destroyer.getLocation();
-        //ArrayList<String> battleshipLocation = battleship.getLocation();
-        //ArrayList<String> cruiserLocation = cruiser.getLocation();
-        //ArrayList<String> submarineLocation = submarine.getLocation();
-
-        //aircraftCarrier.getShipPosition();
-        //destroyer.getShipPosition();
-        //battleship.getShipPosition();
-        //cruiser.getShipPosition();
-        //submarine.getShipPosition();
-
         if (aircraftCarrierLocation.contains(userFired)) {
             aircraftCarrier.setCurrentHits(1);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
@@ -78,8 +65,32 @@ public class TeamBattleship extends HttpServlet {
             RequestDispatcher dispatcher
                     = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
-
+        } else {
+            aircraftCarrier.setCurrentHits(0);
+            request.setAttribute("aircraftCarrier", aircraftCarrier);
+            request.setAttribute("aircraftCarrier", aircraftCarrier);
+            String url = "/battleship.jsp";
+            RequestDispatcher dispatcher
+                    = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
         }
 
+        if (destroyerLocation.contains(userFired)) {
+            destroyer.setCurrentHits(1);
+            request.setAttribute("destroyer", destroyer);
+            request.setAttribute("destroyer", destroyer);
+            String url = "/battleship.jsp";
+            RequestDispatcher dispatcher
+                    = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        } else {
+            destroyer.setCurrentHits(0);
+            request.setAttribute("destroyer", destroyer);
+            request.setAttribute("destroyer", destroyer);
+            String url = "/battleship.jsp";
+            RequestDispatcher dispatcher
+                    = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+        }
      }
 }

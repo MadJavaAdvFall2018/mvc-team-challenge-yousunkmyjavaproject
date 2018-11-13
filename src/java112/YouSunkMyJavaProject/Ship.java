@@ -9,6 +9,7 @@ public class Ship extends Object {
     private ArrayList<String> shipPosition;
     private int currentHits;
     private boolean isSunk;
+    private int totalHits;
 
     /**
      *  Creates a new Ship object with the given information
@@ -35,7 +36,7 @@ public class Ship extends Object {
     }
 
     public int getCurrentHits() {
-        return currentHits;
+        return totalHits;
     }
 
     public boolean getIsSunk() {
@@ -50,6 +51,6 @@ public class Ship extends Object {
     }
 
     public void setCurrentHits(int currentHits) {
-        this.currentHits += currentHits;
+        totalHits = this.currentHits + currentHits;
     }
 }
