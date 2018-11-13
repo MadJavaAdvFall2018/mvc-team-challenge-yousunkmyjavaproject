@@ -34,11 +34,11 @@ public class TeamBattleship extends HttpServlet {
         Ship cruiser = new Ship("crusier", ["d1"], 0);
         Ship submarine = new Ship("submarine", ["e1", "e2"], 0);
 
-        aircraftCarrier.getLocation();
-        destoryer.getLocation();
-        battleship.getLocation();
-        cruiser.getLocation();
-        submarine.getLocation();
+        aircraftCarrier.getShipPosition();
+        destroyer.getShipPosition();
+        battleship.getShipPosition();
+        cruiser.getShipPosition();
+        submarine.getShipPosition();
 
      }
 }
