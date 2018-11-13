@@ -34,11 +34,18 @@ public class TeamBattleship extends HttpServlet {
         Ship cruiser = new Ship("cruiser", ["d1"], 0);
         Ship submarine = new Ship("submarine", ["e1", "e2"], 0);
 
+
         ArrayList<String> aircraftCarrierLocation = aircraftCarrier.getLocation();
         ArrayList<String> destroyerLocation = destroyer.getLocation();
         ArrayList<String> battleshipLocation = battleship.getLocation();
         ArrayList<String> cruiserLocation = cruiser.getLocation();
         ArrayList<String> submarineLocation = submarine.getLocation();
+
+        aircraftCarrier.getShipPosition();
+        destroyer.getShipPosition();
+        battleship.getShipPosition();
+        cruiser.getShipPosition();
+        submarine.getShipPosition();
 
         if (aircraftCarrierLocation.contains(userFired)) {
             aircraftCarrier.setCurrentHits(1);
