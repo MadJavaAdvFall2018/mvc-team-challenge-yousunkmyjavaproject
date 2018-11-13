@@ -59,38 +59,63 @@ public class TeamBattleship extends HttpServlet {
 
         if (aircraftCarrierLocation.contains(userFired)) {
             aircraftCarrier.setCurrentHits(1);
+           // request.setAttribute("aircraftCarrier", aircraftCarrier);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
-            request.setAttribute("aircraftCarrier", aircraftCarrier);
-            String url = "/battleship.jsp";
-            RequestDispatcher dispatcher
-                    = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+
         } else {
             aircraftCarrier.setCurrentHits(0);
+            //request.setAttribute("aircraftCarrier", aircraftCarrier);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
-            request.setAttribute("aircraftCarrier", aircraftCarrier);
-            String url = "/battleship.jsp";
-            RequestDispatcher dispatcher
-                    = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+
         }
 
         if (destroyerLocation.contains(userFired)) {
             destroyer.setCurrentHits(1);
             request.setAttribute("destroyer", destroyer);
-            request.setAttribute("destroyer", destroyer);
-            String url = "/battleship.jsp";
-            RequestDispatcher dispatcher
-                    = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+
+
         } else {
             destroyer.setCurrentHits(0);
             request.setAttribute("destroyer", destroyer);
-            request.setAttribute("destroyer", destroyer);
-            String url = "/battleship.jsp";
-            RequestDispatcher dispatcher
-                    = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
+
         }
+         if (battleshipLocation.contains(userFired)) {
+             battleship.setCurrentHits(1);
+             request.setAttribute("battleship", battleship);
+
+
+         } else {
+             battleship.setCurrentHits(0);
+             request.setAttribute("battleship", battleship);
+
+         }
+
+         if (cruiserLocation.contains(userFired)) {
+             cruiser.setCurrentHits(1);
+             request.setAttribute("cruiser", cruiser);
+
+
+         } else {
+             cruiser.setCurrentHits(0);
+             request.setAttribute("cruiser", cruiser);
+
+         }
+
+
+         if (submarineLocation.contains(userFired)) {
+             submarine.setCurrentHits(1);
+             request.setAttribute("submarine", submarine);
+
+
+         } else {
+             submarine.setCurrentHits(0);
+             request.setAttribute("submarine", submarine);
+
+         }
+
+         String url = "/battleship.jsp";
+         RequestDispatcher dispatcher
+                 = getServletContext().getRequestDispatcher(url);
+         dispatcher.forward(request, response);
      }
 }
