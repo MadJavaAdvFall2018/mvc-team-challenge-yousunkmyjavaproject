@@ -26,7 +26,6 @@ public class Ship extends Object {
     }
 
     public int getSize() {
-
         return this.shipPosition.size();
 
     }
@@ -35,7 +34,11 @@ public class Ship extends Object {
         return name;
     }
 
-    public boolean isSunk() {
+    public int getCurrentHits() {
+        return currentHits;
+    }
+
+    public boolean getIsSunk() {
         if (currentHits >= getSize()) {
             isSunk = true;
         }
@@ -47,6 +50,6 @@ public class Ship extends Object {
     }
 
     public void setCurrentHits(int currentHits) {
-        this.currentHits = currentHits;
+        this.currentHits += currentHits;
     }
 }

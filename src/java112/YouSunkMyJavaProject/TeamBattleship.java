@@ -51,11 +51,11 @@ public class TeamBattleship extends HttpServlet {
         submarineLocation.add("e1");
         submarineLocation.add("e2");
 
-        Ship aircraftCarrier = new Ship("aircraftCarrier", aircraftCarrierLocation, 0);
-        Ship destroyer = new Ship("destroyer", destroyerLocation, 0);
-        Ship battleship = new Ship("battleship", battleshipLocation,  0);
-        Ship cruiser = new Ship("cruiser", cruiserLocation, 0);
-        Ship submarine = new Ship("submarine", submarineLocation,  0);
+        Ship aircraftCarrier = new Ship("Aircraft Carrier", aircraftCarrierLocation, 0);
+        Ship destroyer = new Ship("Destroyer", destroyerLocation, 0);
+        Ship battleship = new Ship("Battleship", battleshipLocation,  0);
+        Ship cruiser = new Ship("Cruiser", cruiserLocation, 0);
+        Ship submarine = new Ship("Submarine", submarineLocation,  0);
 
 
         //ArrayList<String> aircraftCarrierLocation = aircraftCarrier.getLocation();
@@ -64,42 +64,22 @@ public class TeamBattleship extends HttpServlet {
         //ArrayList<String> cruiserLocation = cruiser.getLocation();
         //ArrayList<String> submarineLocation = submarine.getLocation();
 
-        aircraftCarrier.getShipPosition();
-        destroyer.getShipPosition();
-        battleship.getShipPosition();
-        cruiser.getShipPosition();
-        submarine.getShipPosition();
+        //aircraftCarrier.getShipPosition();
+        //destroyer.getShipPosition();
+        //battleship.getShipPosition();
+        //cruiser.getShipPosition();
+        //submarine.getShipPosition();
 
         if (aircraftCarrierLocation.contains(userFired)) {
             aircraftCarrier.setCurrentHits(1);
-        }
-        if (destroyerLocation.contains(userFired)) {
-            destroyer.setCurrentHits(1);
-        }
-        if (battleshipLocation.contains(userFired)) {
-            battleship.setCurrentHits(1);
-        }
-        if (cruiserLocation.contains(userFired)) {
-            cruiser.setCurrentHits(1);
-        }
-        if (submarineLocation.contains(userFired)) {
-            submarine.setCurrentHits(1);
+            request.setAttribute("aircraftCarrier", aircraftCarrier);
+            request.setAttribute("aircraftCarrier", aircraftCarrier);
+            String url = "/battleship.jsp";
+            RequestDispatcher dispatcher
+                    = getServletContext().getRequestDispatcher(url);
+            dispatcher.forward(request, response);
+
         }
 
-        if (aircraftCarrier.isSunk()) {
-            System.out.println("You sunk My Java Project... and also " + aircraftCarrier.getName());
-        }
-        if (destroyer.isSunk()) {
-            System.out.println("You sunk My Java Project... and also " + destroyer.getName());
-        }
-        if (battleship.isSunk()) {
-            System.out.println("You sunk My Java Project... and also " + battleship.getName());
-        }
-        if (cruiser.isSunk()) {
-            System.out.println("You sunk My Java Project... and also " + cruiser.getName());
-        }
-        if (submarine.isSunk()) {
-            System.out.println("You sunk My Java Project... and also " + submarine.getName());
-        }
      }
 }
