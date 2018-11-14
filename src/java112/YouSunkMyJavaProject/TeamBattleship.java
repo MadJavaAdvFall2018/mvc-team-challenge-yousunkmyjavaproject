@@ -24,6 +24,8 @@ public class TeamBattleship extends HttpServlet {
      *@exception  ServletException  if there is a Servlet failure
      *@exception  IOException       if there is an IO failure
      */
+    private int aircraftHits = 0;
+
      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -41,15 +43,19 @@ public class TeamBattleship extends HttpServlet {
         destroyerLocation.add("b2");
         destroyerLocation.add("b3");
         destroyerLocation.add("b4");
+
         ArrayList<String> battleshipLocation = new ArrayList<>();
         battleshipLocation.add("c1");
         battleshipLocation.add("c2");
         battleshipLocation.add("c3");
+
         ArrayList<String> cruiserLocation = new ArrayList<>();
         cruiserLocation.add("d1");
+
         ArrayList<String> submarineLocation = new ArrayList<>();
         submarineLocation.add("e1");
         submarineLocation.add("e2");
+
 
         Ship aircraftCarrier = new Ship("Aircraft Carrier", aircraftCarrierLocation, 0);
         Ship destroyer = new Ship("Destroyer", destroyerLocation, 0);
@@ -58,12 +64,13 @@ public class TeamBattleship extends HttpServlet {
         Ship submarine = new Ship("Submarine", submarineLocation,  0);
 
         if (aircraftCarrierLocation.contains(userFired)) {
-            aircraftCarrier.setCurrentHits(1);
+            aircraftHits++;
+            aircraftCarrier.setCurrentHits(aircraftHits);
            // request.setAttribute("aircraftCarrier", aircraftCarrier);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
 
         } else {
-            aircraftCarrier.setCurrentHits(0);
+            aircraftCarrier.setCurrentHits(aircraftHits);
             //request.setAttribute("aircraftCarrier", aircraftCarrier);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
 
