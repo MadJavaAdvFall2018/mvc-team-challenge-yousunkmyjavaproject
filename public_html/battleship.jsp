@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <table class="table table-dark">
+        <table class="table table-dark table-striped">
             <tr>
                 <th>Ship Name</th><th>Ship Position</th><th>Current Hits</th><th>Is Sunk?</th>
             </tr>
