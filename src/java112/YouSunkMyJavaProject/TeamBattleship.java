@@ -19,12 +19,16 @@ public class TeamBattleship extends HttpServlet {
     /**
      *  Handles HTTP GET requests.
      *
-     *@param  request                   the HttpServletRequest object
-     *@param  response                   the HttpServletResponse object
-     *@exception  ServletException  if there is a Servlet failure
-     *@exception  IOException       if there is an IO failure
+     *@param  request the HttpServletRequest object
+     *@param  response the HttpServletResponse object
+     *@exception  ServletException if there is a Servlet failure
+     *@exception  IOException if there is an IO failure
      */
     private int aircraftHits = 0;
+    private int destroyerHits = 0;
+    private int battleshipHits = 0;
+    private int cruiserHits = 0;
+    private int submarineHits = 0;
 
      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -56,68 +60,55 @@ public class TeamBattleship extends HttpServlet {
         submarineLocation.add("e1");
         submarineLocation.add("e2");
 
-
-        Ship aircraftCarrier = new Ship("Aircraft Carrier", aircraftCarrierLocation, 0);
-        Ship destroyer = new Ship("Destroyer", destroyerLocation, 0);
-        Ship battleship = new Ship("Battleship", battleshipLocation,  0);
-        Ship cruiser = new Ship("Cruiser", cruiserLocation, 0);
-        Ship submarine = new Ship("Submarine", submarineLocation,  0);
+        Ship aircraftCarrier = new Ship("Aircraft Carrier", aircraftCarrierLocation, 0, false);
+        Ship destroyer = new Ship("Destroyer", destroyerLocation, 0, false);
+        Ship battleship = new Ship("Battleship", battleshipLocation, 0, false);
+        Ship cruiser = new Ship("Cruiser", cruiserLocation, 0, false);
+        Ship submarine = new Ship("Submarine", submarineLocation,  0, false);
 
         if (aircraftCarrierLocation.contains(userFired)) {
             aircraftHits++;
             aircraftCarrier.setCurrentHits(aircraftHits);
-           // request.setAttribute("aircraftCarrier", aircraftCarrier);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
-
         } else {
             aircraftCarrier.setCurrentHits(aircraftHits);
-            //request.setAttribute("aircraftCarrier", aircraftCarrier);
             request.setAttribute("aircraftCarrier", aircraftCarrier);
-
         }
 
         if (destroyerLocation.contains(userFired)) {
-            destroyer.setCurrentHits(1);
+            destroyerHits++;
+            destroyer.setCurrentHits(destroyerHits);
             request.setAttribute("destroyer", destroyer);
-
-
         } else {
-            destroyer.setCurrentHits(0);
+            destroyer.setCurrentHits(destroyerHits);
             request.setAttribute("destroyer", destroyer);
-
         }
+
          if (battleshipLocation.contains(userFired)) {
-             battleship.setCurrentHits(1);
+             battleshipHits++;
+             battleship.setCurrentHits(battleshipHits);
              request.setAttribute("battleship", battleship);
-
-
          } else {
-             battleship.setCurrentHits(0);
+             battleship.setCurrentHits(battleshipHits);
              request.setAttribute("battleship", battleship);
-
          }
 
          if (cruiserLocation.contains(userFired)) {
-             cruiser.setCurrentHits(1);
+             cruiserHits++;
+             cruiser.setCurrentHits(cruiserHits);
              request.setAttribute("cruiser", cruiser);
-
-
          } else {
-             cruiser.setCurrentHits(0);
+             cruiser.setCurrentHits(cruiserHits);
              request.setAttribute("cruiser", cruiser);
-
          }
 
-
          if (submarineLocation.contains(userFired)) {
-             submarine.setCurrentHits(1);
+             submarineHits++;
+             submarine.setCurrentHits(submarineHits);
              request.setAttribute("submarine", submarine);
-
-
          } else {
-             submarine.setCurrentHits(0);
+             submarine.setCurrentHits(submarineHits);
              request.setAttribute("submarine", submarine);
-
          }
 
          String url = "/battleship.jsp";

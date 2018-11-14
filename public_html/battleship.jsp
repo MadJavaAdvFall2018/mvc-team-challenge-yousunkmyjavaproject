@@ -42,8 +42,6 @@
                 <td>${submarine.currentHits}</td>
                 <td>${submarine.isSunk}</td>
             </tr>
-
         </table>
-
     </body>
 </html>

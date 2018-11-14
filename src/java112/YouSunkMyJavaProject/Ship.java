@@ -12,18 +12,17 @@ public class Ship extends Object {
     private int totalHits;
 
     /**
-     *  Creates a new Ship object with the given information
-     *
-     * @param name The name of the type of ship
-     * @param shipPosition The upper-left location of the ship
-     * @param currentHits The number of times the ship has been hit
-     */
-    public Ship(String name, ArrayList<String> shipPosition, int currentHits) {
-
+    *  Creates a new Ship object with the given information
+    *
+    * @param name The name of the type of ship
+    * @param shipPosition The upper-left location of the ship
+    * @param currentHits The number of times the ship has been hit
+    */
+    public Ship(String name, ArrayList<String> shipPosition, int currentHits, boolean isSunk) {
         this.name = name;
         this.shipPosition = shipPosition;
         this.currentHits = currentHits;
-        this.isSunk = false; // a brand new ship is never sunk
+        this.isSunk = isSunk;
     }
 
     public int getSize() {
@@ -40,7 +39,7 @@ public class Ship extends Object {
     }
 
     public boolean getIsSunk() {
-        if (currentHits >= getSize()) {
+        if (totalHits >= this.shipPosition.size()) {
             isSunk = true;
         }
         return isSunk;
